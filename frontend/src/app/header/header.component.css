@@ -1,0 +1,22 @@
+.header {
+  width: 100vw;
+  height: 8vh;
+  left: 0px;
+  top: 0px;
+  background: #0D503C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-wrapper {
+  padding: 1em;
+  margin-right: 1em;
+}
+
+.text{
+  color: white;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
