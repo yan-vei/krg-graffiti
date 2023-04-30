@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent {
-  lat: number = 49.495990;
-  lng: number = 73.095688;
-
+  lat: number = 49.808571116626005;
+  lng: number = 73.10329162306904;
 }
