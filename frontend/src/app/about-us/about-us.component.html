@@ -1,0 +1,27 @@
+<div class="about-us-wrapper">
+  <div class="avatar-wrapper">
+    <img class="avatar" src="../../assets/yv.webp">
+  </div>
+  <div class="text-wrapper">
+    <p class="text">Привет! <br>
+      Меня зовут Яна, и я программистка. Я создала этот сайт, чтобы популяризировать
+      уличное искусство в Караганде. <br>
+      В разделе <a routerLink="/map" routerLinkActive="true">"Карта"</a> вы можете найти отметки о добавленных
+      в базу граффити и муралах. Также вы можете прислать нам свою фотографию и описание
+      стрит-арта в разделе <a routerLink="/send-graffiti" routerLinkActive="true">"Отправить граффити"</a> - если мы сможем подтвердить наличие рисунка
+      в городе, то мы обязательно добавим его на карту.
+    </p>
+  </div>
+  <div class="social">
+    <button onclick="window.open('https://github.com/yan-vei/krg-graffiti')">
+      <img class="social-icon" src="../../assets/icons8-github.svg">
+    </button>
+    <button onclick="window.open('https://www.linkedin.com/in/yveitsman/')">
+      <img class="social-icon" src="../../assets/icons8-linkedin.svg">
+    </button>
+    <button (click)="copyToClipboard('veytsman.karaganda@gmail.com')">
+      <img class="social-icon" src="../../assets/icons8-gmail.svg">
+    </button>
+  </div>
+</div>
+

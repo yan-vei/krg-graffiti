@@ -1,0 +1,41 @@
+<div class="graffiti-wrapper">
+  <div class="text-wrapper">
+    <p class="text">
+      Если вы знаете о каком-то граффити, которое еще не отмечено на карте,
+      вы можете прислать его нам, воспользовавшись формой ниже. <br>
+      Мы проверим ваш запрос и, если информация подтвердится, обязательно добавим
+      изображение на нашу карту.
+    </p>
+  </div>
+  <div class="form-wrapper">
+    <form [formGroup]="sendGraffitiForm">
+      <div class="form-row">
+        <label for="title">Название:</label>
+        <input type="text" formControlName="title">
+      </div>
+      <div class="form-row">
+        <label for="address">Адрес:</label>
+        <input type="text" formControlName="address">
+        <label for="zip">Индекс:</label>
+        <input type="text" formControlName="zip" id="zip">
+      </div>
+      <div class="form-row">
+        <label for="longitude">Долгота:</label>
+        <input type="text" formControlName="longitude" id="lg">
+        <label for="latitude">Широта:</label>
+        <input type="text" formControlName="latitude" id="lt">
+      </div>
+      <div class="form-row" id="comment">
+        <label for="zip">Комментарий:</label> <br>
+        <textarea formControlName="comment" id="comment-area"></textarea>
+      </div>
+      <div class="form-row">
+          <label for="upload" id="photo-upload">Загрузить фото</label>
+          <input type="file" formControlName="photo" id="upload">
+      </div>
+      <div class="form-row" id="send-button">
+        <button>Отправить</button>
+      </div>
+    </form>
+  </div>
+</div>

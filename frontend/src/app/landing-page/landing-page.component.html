@@ -1,0 +1,20 @@
+<div class="landing-wrapper">
+  <div class="text-wrapper">
+      <span class="text">
+    Интерактивная карта:
+    <br>
+    Граффити Караганды
+  </span>
+  </div>
+</div>
+<div class="map-wrapper">
+  <div class="map">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="12">
+      <agm-marker [latitude]="lat" [longitude]="lng" [openInfoWindow]="true">
+        <agm-info-window [disableAutoPan]="true">
+        Hi, this is the content of the <strong>info window</strong>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+</div>

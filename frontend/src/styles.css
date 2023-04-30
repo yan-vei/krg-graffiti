@@ -1,0 +1,11 @@
+body, html{
+  margin: 0;
+  padding: 0;
+  background: #F6FEFC;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}

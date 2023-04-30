@@ -1,0 +1,110 @@
+.graffiti-wrapper {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 2.5em;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.text-wrapper {
+  width: 100%;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  text-align: justify;
+  vertical-align: middle;
+}
+
+.form-wrapper {
+  border: 1px solid #D2F4EA;
+  border-radius: 1%;
+  box-shadow: 0.5em 0.5em #D2F4EA;
+  align-items: center;
+}
+
+.form-row {
+  margin: 1em;
+  height: 5vh;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+label {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  margin-right: 1em;
+  margin-left: 1em;
+  width: 50%;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: 1px solid #DEE2E6;
+  border-radius: 4px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+input[type=text] {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  height: 80%;
+  border: 1px solid #DEE2E6;
+  border-radius: 4px;
+  width: 50%;
+}
+
+input[type=file] {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  display: none;
+}
+
+#lg, #lt {
+  width: 32%;
+}
+
+#zip {
+  width: 17%;
+}
+
+.form-row#send-button {
+  display: flex;
+  justify-content: center;
+}
+
+.form-row#comment {
+  height: fit-content;
+}
+
+button {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  background: #FFFFFF;
+  border: 1px solid #28A745;
+  border-radius: 4px;
+}
+
+#comment-area {
+  margin-left: 1em;
+  width: 90%;
+  height: 100%;
+  min-height: 15vh;
+}
+
+#photo-upload {
+  background: #FFFFFF;
+  border: 1px solid #28A745;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  width: 20%;
+  padding-top: 0.5em;
+  height: 80%;
+  text-align: center;
+}
