@@ -12,6 +12,6 @@ RUN npm i --force
 
 COPY . .
 
-EXPOSE 4200
+EXPOSE 3080
 
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "3080"]
