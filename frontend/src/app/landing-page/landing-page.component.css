@@ -17,7 +17,7 @@
   font-weight: 700;
 }
 
-@media (max-height: 45rem) {
+@media (max-width: 37.5rem) {
   .text {
     font-size: 1rem;
   }
