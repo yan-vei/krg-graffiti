@@ -9,11 +9,18 @@
   margin: 1rem;
 }
 
-.text{
+
+.text {
   color: black;
   font-family: Inter, sans-serif;
   font-size: 2rem;
   font-weight: 700;
+}
+
+@media (max-height: 45rem) {
+  .text {
+    font-size: 1rem;
+  }
 }
 
 .map-wrapper {
@@ -27,7 +34,7 @@
 .map {
   width: 90%;
   height: 90%;
-  margin: 0rem 1rem 1rem 1rem;
+  margin: auto;
 }
 
 agm-map {
