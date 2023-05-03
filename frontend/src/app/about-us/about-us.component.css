@@ -1,29 +1,42 @@
 .about-us-wrapper {
-  width: 50%;
+  width: 70%;
   margin: auto;
   display: flex;
   justify-content: center;
-  padding: 2.5em;
   flex-wrap: wrap;
   align-items: center;
+  padding-top: 1rem;
 }
 
 .text-wrapper {
-  width: 50%;
+  width: 100%;
   font-family: Inter, sans-serif;
-  font-size: 18px;
+  font-size: 1rem;
   text-align: justify;
-  vertical-align: middle;
+}
+
+@media screen and (min-width: 72rem) {
+  .text-wrapper {
+    font-size: 1.2rem;
+  }
 }
 
 .avatar-wrapper {
-  margin-right: 1.5em;
+  margin-right: 1.5rem;
 }
 
 .avatar {
   width: 30vh;
   height: 30vh;
   border-radius: 50%;
+  border: 1px dashed #0D503C;
+}
+
+@media screen and (max-width: 37.5rem) {
+  .avatar {
+    width: 25vh;
+    height: 25vh;
+  }
 }
 
 a {
