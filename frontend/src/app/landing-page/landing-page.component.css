@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .landing-wrapper {
   display: flex;
   justify-content: center;
@@ -6,13 +10,13 @@
 }
 
 .text-wrapper {
-  margin: 1em;
+  margin: 1rem;
 }
 
 .text{
   color: black;
   font-family: Inter, sans-serif;
-  font-size: 38px;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -25,15 +29,12 @@
 }
 
 .map {
-  width: 100%;
+  width: 90%;
   height: 90%;
-  position: fixed;
-  text-align: center;
+  margin: 0rem 1rem 1rem 1rem;
 }
 
 agm-map {
-  height: 65vh;
-  width: 80vh;
-  margin: 0px auto;
-  display: inline-block;
+  height: 70vh;
+  width: 100%;
 }
