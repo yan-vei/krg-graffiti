@@ -8,7 +8,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class GraffitiSendingFormComponent {
   sendGraffitiForm = this.fb.group({
-    title: [''],
     address: [''],
     longitude: [''],
     latitude: [''],
