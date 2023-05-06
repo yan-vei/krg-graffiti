@@ -1,19 +1,18 @@
 .graffiti-wrapper {
-  width: 50%;
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: center;
-  padding: 2.5em;
+  padding-top: 1rem;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .text-wrapper {
-  width: 100%;
+  width: 90%;
   font-family: Inter, sans-serif;
-  font-size: 20px;
-  text-align: justify;
-  vertical-align: middle;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .form-wrapper {
@@ -33,7 +32,7 @@
 
 label {
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   margin-right: 1em;
   margin-left: 1em;
   width: 50%;
@@ -45,12 +44,12 @@ textarea {
   border: 1px solid #DEE2E6;
   border-radius: 4px;
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 input[type=text] {
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   outline: none;
   box-sizing: border-box;
   height: 80%;
@@ -61,7 +60,7 @@ input[type=text] {
 
 input[type=file] {
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   display: none;
 }
 
@@ -84,7 +83,7 @@ input[type=file] {
 
 button {
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   background: #FFFFFF;
   border: 1px solid #28A745;
   border-radius: 4px;
