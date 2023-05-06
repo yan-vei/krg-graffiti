@@ -6,14 +6,21 @@
 }
 
 .text-wrapper {
-  margin: 1em;
+  margin: 1rem;
 }
 
-.text{
+
+.text {
   color: black;
   font-family: Inter, sans-serif;
-  font-size: 38px;
+  font-size: 2rem;
   font-weight: 700;
+}
+
+@media (max-width: 37.5rem) {
+  .text {
+    font-size: 1rem;
+  }
 }
 
 .map-wrapper {
@@ -25,15 +32,12 @@
 }
 
 .map {
-  width: 100%;
+  width: 90%;
   height: 90%;
-  position: fixed;
-  text-align: center;
+  margin: auto;
 }
 
 agm-map {
-  height: 65vh;
-  width: 80vh;
-  margin: 0px auto;
-  display: inline-block;
+  height: 70vh;
+  width: 100%;
 }
