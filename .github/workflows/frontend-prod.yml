@@ -39,4 +39,5 @@ jobs:
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: krg-graffiti-front-prod
+            secure-environment-variables: NG_APP_GOOGLE_MAPS_API_KEY=${{ secrets.NG_APP_GOOGLE_MAPS_API_KEY }}
             location: 'north europe'
