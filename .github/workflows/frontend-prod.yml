@@ -11,7 +11,8 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@main
+          uses: actions/checkout@master
+          working-directory: ./frontend
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
