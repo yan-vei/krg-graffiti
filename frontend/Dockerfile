@@ -6,10 +6,10 @@ WORKDIR /frontend
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install -g @angular/cli@15
+RUN npm install -g @angular/cli
 
 COPY package.json /frontend/package.json
-RUN npm i --force
+RUN npm i
 
 COPY . /frontend
 

@@ -6,16 +6,16 @@ WORKDIR /frontend
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install -g @angular/cli@15
+RUN npm install -g @angular/cli
 
 COPY package.json /frontend/package.json
-RUN npm i --force
+RUN npm i
 
 COPY . /frontend
 
 RUN ng build --configuration production --output-path=dist
 
-FROM nginx:1.16.0-alpine
+FROM nginx:1.14.2
 
 COPY --from=build /frontend/dist /usr/share/nginx/html
 
