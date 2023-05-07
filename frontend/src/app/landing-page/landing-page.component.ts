@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,6 +12,8 @@ import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 })
 export class LandingPageComponent {
   apiLoaded: Observable<boolean>;
+  url: string = 'https://maps.googleapis.com/maps/api/js?key=' + environment.googleMapsApiKey;
+
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow | any;
 
   lat: number = 49.808571116626005;
@@ -21,7 +24,8 @@ export class LandingPageComponent {
 
   constructor(httpClient: HttpClient) {
 
-    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyBKoxdP_26r9N69xoQmTd2ItzkmkS_ez7w', 'callback')
+
+    this.apiLoaded = httpClient.jsonp(this.url, 'callback')
         .pipe(
           map(() => true),
           catchError(() => of(false)),
