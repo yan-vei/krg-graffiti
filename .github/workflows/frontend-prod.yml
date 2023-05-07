@@ -3,7 +3,7 @@ on:
     branches:
     - master
     
-name: Frontend_Prod_Deployment
+name: frontend_prod_deployment
 
 jobs:
     build-and-deploy:
@@ -28,7 +28,6 @@ jobs:
             cd frontend
             touch .env
             echo NG_APP_GOOGLE_MAPS_API_KEY=${{ secrets.NG_APP_GOOGLE_MAPS_API_KEY }} >> .env
-            cat .env
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/krg-graffiti-front-prod:${{ github.sha }} -f Dockerfile-prod
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/krg-graffiti-front-prod:${{ github.sha }}
 
