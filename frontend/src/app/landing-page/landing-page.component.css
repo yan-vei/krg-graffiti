@@ -23,21 +23,8 @@
   }
 }
 
-.map-wrapper {
-  width: 100%;
-  min-height: 50vh;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
 .map {
-  width: 90%;
-  height: 90%;
   margin: auto;
-}
-
-agm-map {
-  height: 70vh;
-  width: 100%;
+  width: 90%;
+  height: 100%;
 }

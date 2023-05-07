@@ -2,15 +2,16 @@
 
 FROM node:16-buster-slim as builder
 
-RUN mkdir /frontend
 WORKDIR /frontend
 
-RUN npm install -g @angular/cli@15
+ENV PATH /app/node_modules/.bin:$PATH
 
-COPY package.json package-lock.json ./
-RUN npm i --force
+RUN npm install -g @angular/cli
 
-COPY . .
+COPY package.json /frontend/package.json
+RUN npm i
+
+COPY . /frontend
 
 EXPOSE 3080
 
