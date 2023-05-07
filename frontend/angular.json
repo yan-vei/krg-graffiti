@@ -11,11 +11,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "src/custom-webpack.config.ts"
-            },
             "outputPath": "dist/frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -46,8 +43,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "none",
-              "namedChunks": true
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,
@@ -61,7 +57,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "frontend:build:production"
