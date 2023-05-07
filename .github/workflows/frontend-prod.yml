@@ -10,8 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         # checkout the repo
+        - uses: actions/checkout@main
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@master
           working-directory: ./frontend
           
         - name: 'Login via Azure CLI'
