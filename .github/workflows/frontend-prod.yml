@@ -10,9 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         # checkout the repo
-        - uses: actions/checkout@main
         - name: 'Checkout GitHub Action'
-          working-directory: ./frontend
+          uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
@@ -26,6 +25,7 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
+            cd frontend
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/krg-graffiti-front-prod:${{ github.sha }} -f Dockerfile-prod
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/krg-graffiti-front-prod:${{ github.sha }}
 
