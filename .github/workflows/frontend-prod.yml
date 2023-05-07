@@ -19,6 +19,8 @@ jobs:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
         
         - name: 'Build and push image'
+          env:
+            NG_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.NG_APP_GOOGLE_MAPS_API_KEY }}
           uses: azure/docker-login@v1
           with:
             login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
@@ -26,6 +28,8 @@ jobs:
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
             cd frontend
+            touch .env
+            echo NG_APP_GOOGLE_MAPS_API_KEY=$"NG_APP_GOOGLE_MAPS_API_KEY" >> .env
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/krg-graffiti-front-prod:${{ github.sha }} -f Dockerfile-prod
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/krg-graffiti-front-prod:${{ github.sha }}
 
@@ -38,6 +42,5 @@ jobs:
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-            secure-environment-variables: NG_APP_GOOGLE_MAPS_API_KEY=${{ secrets.NG_APP_GOOGLE_MAPS_API_KEY }}
             name: krg-graffiti-front-prod
             location: 'north europe'
