@@ -7,4 +7,3 @@ engine = create_engine(config.POSTGRES_DB_URL)
 Session = sessionmaker(bind=engine)
 
 Base = declarative_base()
-Base.metadata.create_all(engine)
