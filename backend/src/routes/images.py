@@ -7,8 +7,8 @@ from backend.src.crud import graffiti
 images = Blueprint("images", __name__)
 
 
-@images.route("/api/v1/images/upload", methods=['POST'])
-def upload_image_to_aws():
+@images.route("/api/v1/images", methods=["POST"])
+def upload_image():
     graffiti_data = request.form.to_dict()
     image = request.files['image']
 
@@ -23,4 +23,28 @@ def upload_image_to_aws():
 
     return make_response(jsonify(graffiti_obj), 200)
 
+
+@images.route("/api/v1/images", methods=["GET"])
+def retrieve_images():
+    return make_response(jsonify(graffiti.get_graffities()), 200)
+
+
+@images.route("/api/v1/images/<id>", methods=["GET", "PATCH"])
+def retrieve_image(id):
+    if request.method == "GET":
+        graffiti_obj = graffiti.get_graffiti(id)
+        if graffiti_obj:
+            return make_response(jsonify(graffiti_obj), 200)
+        else:
+            err = "User with the " + str(id) + " is not found."
+            return make_response(jsonify({"error": err}), 404)
+
+    elif request.method == "PATCH":
+        params = request.get_json()
+
+        if "has_admin_checked" in params.keys():
+            changed_graffiti_id = graffiti.check_graffiti(id)
+            return make_response(jsonify({"id": changed_graffiti_id, "message": "The graffiti object has been patched."}), 200)
+        else:
+            return make_response(jsonify({"error": "Cannot patch the resource with this data."}), 400)
 
