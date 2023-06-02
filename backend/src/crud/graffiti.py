@@ -15,7 +15,7 @@ def create_graffiti(image_url, address, longitude, latitude, zip, comment, has_a
 
     return graffiti_obj
 
-
+  
 def get_graffities():
     session = Session()
     graffities_objs = session.query(Graffiti).filter_by().all()

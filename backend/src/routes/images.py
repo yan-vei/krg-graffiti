@@ -48,4 +48,3 @@ def retrieve_image(id):
         else:
             return make_response(jsonify({"error": "Cannot patch the resource with this data."}), 400)
 
-
