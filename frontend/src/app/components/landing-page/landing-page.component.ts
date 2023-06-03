@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { GraffitiService } from 'src/app/services/graffiti.service';
 import { environment } from 'src/environments/environment';
+import { Graffiti } from 'src/app/entities/graffiti.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,6 +14,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LandingPageComponent {
   apiLoaded: Observable<boolean>;
+  graffities: Graffiti[] = [];
   url: string = 'https://maps.googleapis.com/maps/api/js?key=' + environment.googleMapsApiKey;
 
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow | any;
@@ -22,14 +25,19 @@ export class LandingPageComponent {
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [{lat: this.lat, lng: this.lng}];
 
-  constructor(httpClient: HttpClient) {
-
-
+  constructor(private httpClient: HttpClient, private graffitiService: GraffitiService) {
     this.apiLoaded = httpClient.jsonp(this.url, 'callback')
         .pipe(
           map(() => true),
           catchError(() => of(false)),
         );
+  }
+
+  ngOnInit() {
+    this.graffitiService.getGraffities()
+    .subscribe((data: Graffiti[]) =>{
+      this.graffities = data;
+    })
   }
 
   options: google.maps.MapOptions = {
