@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify
 from flask import make_response, request
 from backend.src.utils import aws_helper
 from backend.src.crud import graffiti
+from backend.src.utils.decorators import admin_rights_required, is_admin
 
 
 images = Blueprint("images", __name__)
@@ -25,11 +26,13 @@ def upload_image():
 
 
 @images.route("/api/v1/images", methods=["GET"])
-def retrieve_images():
-    return make_response(jsonify(graffiti.get_graffities()), 200)
+@is_admin
+def retrieve_images(has_admin_valid_token):
+    return make_response(jsonify(graffiti.get_graffities(has_admin_valid_token)), 200)
 
 
 @images.route("/api/v1/images/<id>", methods=["GET", "PATCH"])
+@admin_rights_required
 def retrieve_image(id):
     if request.method == "GET":
         graffiti_obj = graffiti.get_graffiti(id)

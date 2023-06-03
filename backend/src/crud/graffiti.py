@@ -16,9 +16,13 @@ def create_graffiti(image_url, address, longitude, latitude, zip, comment, has_a
     return graffiti_obj
 
   
-def get_graffities():
+def get_graffities(is_admin):
     session = Session()
-    graffities_objs = session.query(Graffiti).filter_by().all()
+
+    if is_admin:
+        graffities_objs = session.query(Graffiti).filter_by().all()
+    else:
+        graffities_objs = session.query(Graffiti).filter_by(has_admin_checked=True).all()
 
     schema = GraffitiSchema(many=True)
     graffities = schema.dump(graffities_objs)
