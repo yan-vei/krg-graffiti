@@ -9,10 +9,10 @@
 </div>
 <div class="map" *ngIf="apiLoaded | async">
   <google-map width="100%" [options]="options">
-    <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
-              [position]="markerPosition"
+    <map-marker #marker="mapMarker" *ngFor="let graffiti of graffities"
+              [position]="graffiti.position"
               [options]="markerOptions"
-              (mapClick)="openInfoWindow(marker)"></map-marker>
-    <map-info-window>Info Window content</map-info-window>
+              (mapClick)="openInfoWindow(marker, graffiti.infoContent)"></map-marker>
+    <map-info-window [innerHTML]="infoContent" #infoWindow="mapInfoWindow"></map-info-window>
   </google-map>
 </div>

@@ -28,3 +28,15 @@
   width: 80%;
   height: 80%;
 }
+
+.info-window-wrapper {
+  display: flex;
+}
+
+.info-window-text {
+  margin-left: 5px;
+}
+
+.gm-style-iw-d {
+  max-width: 350px !important;
+}
