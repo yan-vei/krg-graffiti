@@ -7,6 +7,8 @@ export class Graffiti {
     public image_url: string,
     public latitude: number,
     public longitude: number,
-    public zip: number
+    public zip: number,
+    public position: google.maps.LatLngLiteral,
+    public infoContent: string
   ) {}
 }

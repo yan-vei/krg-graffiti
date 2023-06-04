@@ -17,13 +17,13 @@ export class LandingPageComponent {
   graffities: Graffiti[] = [];
   url: string = 'https://maps.googleapis.com/maps/api/js?key=' + environment.googleMapsApiKey;
 
-  @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow | any;
+  @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow[] | any;
+  infoContent: string = "";
 
   lat: number = 49.808571116626005;
   lng: number = 73.10329162306904;
 
   markerOptions: google.maps.MarkerOptions = {draggable: false};
-  markerPositions: google.maps.LatLngLiteral[] = [{lat: this.lat, lng: this.lng}];
 
   constructor(private httpClient: HttpClient, private graffitiService: GraffitiService) {
     this.apiLoaded = httpClient.jsonp(this.url, 'callback')
@@ -37,6 +37,12 @@ export class LandingPageComponent {
     this.graffitiService.getGraffities()
     .subscribe((data: Graffiti[]) =>{
       this.graffities = data;
+
+      this.graffities.forEach(graffiti => {
+        let position: google.maps.LatLngLiteral = {lat: graffiti.latitude, lng: graffiti.longitude}
+        graffiti["position"] = position;
+        graffiti["infoContent"] = graffiti.comment;
+      })
     })
   }
 
@@ -45,7 +51,9 @@ export class LandingPageComponent {
     zoom: 12
   };
 
-  openInfoWindow(marker: MapMarker) {
+
+  openInfoWindow(marker: MapMarker, content: string) {
+    this.infoContent = content;
     this.infoWindow.open(marker);
   }
 }
