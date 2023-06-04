@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -10,7 +10,8 @@ import { Graffiti } from 'src/app/entities/graffiti.model';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
+  styleUrls: ['./landing-page.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LandingPageComponent {
   apiLoaded: Observable<boolean>;
@@ -41,7 +42,7 @@ export class LandingPageComponent {
       this.graffities.forEach(graffiti => {
         let position: google.maps.LatLngLiteral = {lat: graffiti.latitude, lng: graffiti.longitude}
         graffiti["position"] = position;
-        graffiti["infoContent"] = graffiti.comment;
+        graffiti["infoContent"] = '<div class="info-window-wrapper""><img width="50%" alt="graffiti" src="' + graffiti.image_url + '"><p class="info-window-text">' + graffiti.comment + '</p></div><a href="' + graffiti.image_url +'">Открыть в новом окне</a>'
       })
     })
   }
