@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { GraffitiSendingFormComponent } from './graffiti-sending-form/graffiti-sending-form.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { GraffitiSendingFormComponent } from './components/graffiti-sending-form/graffiti-sending-form.component';
 
 const routes: Routes = [
     { path: 'map', component: LandingPageComponent},
