@@ -44,9 +44,9 @@ def get_graffiti(id):
     return graffiti
 
 
-def check_graffiti(id):
+def update_graffiti(id, update_obj):
     session = Session()
-    graffiti_obj = session.query(Graffiti).filter_by(id=id).update({'has_admin_checked': True})
+    graffiti_obj = session.query(Graffiti).filter_by(id=id).update(update_obj)
 
     session.commit()
     session.close()
