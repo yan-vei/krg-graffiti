@@ -34,20 +34,18 @@ def retrieve_images(has_admin_valid_token):
 @images.route("/api/v1/images/<id>", methods=["GET", "PATCH"])
 @admin_rights_required
 def retrieve_image(id):
+    graffiti_obj = graffiti.get_graffiti(id)
+
+    if graffiti_obj == {}:
+        err = "Graffiti with the id " + str(id) + " is not found."
+        return make_response(jsonify({"error": err}), 404)
+
     if request.method == "GET":
-        graffiti_obj = graffiti.get_graffiti(id)
-        if graffiti_obj:
-            return make_response(jsonify(graffiti_obj), 200)
-        else:
-            err = "User with the " + str(id) + " is not found."
-            return make_response(jsonify({"error": err}), 404)
+        return make_response(jsonify(graffiti_obj), 200)
 
     elif request.method == "PATCH":
         params = request.get_json()
 
-        if "has_admin_checked" in params.keys():
-            changed_graffiti_id = graffiti.check_graffiti(id)
-            return make_response(jsonify({"id": changed_graffiti_id, "message": "The graffiti object has been patched."}), 200)
-        else:
-            return make_response(jsonify({"error": "Cannot patch the resource with this data."}), 400)
-
+        changed_graffiti_id = graffiti.update_graffiti(id, params)
+        return make_response(jsonify({"id": changed_graffiti_id, "message": "The graffiti object has been patched."}),
+                             200)
