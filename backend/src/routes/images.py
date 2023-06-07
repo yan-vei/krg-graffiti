@@ -15,7 +15,7 @@ def upload_image():
 
     try:
         image_url = aws_helper.upload_to_aws(image)
-    except:
+    except Exception as e:
         return make_response({"error": "Image failed to upload to AWS."}, 500)
 
     graffiti_obj = graffiti.create_graffiti(image_url=image_url, address=graffiti_data['address'],
