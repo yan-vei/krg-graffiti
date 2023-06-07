@@ -25,7 +25,7 @@ def upload_to_aws(image_file):
         file,
         AWS_BUCKET_NAME,
         file_name,
-        ExtraArgs={'ACL': 'public-read'}
+        ExtraArgs={'ACL': 'public-read', 'ContentType': 'image/png'}
     )
     location = client.get_bucket_location(Bucket=AWS_BUCKET_NAME)['LocationConstraint']
     object_url = "https://%s.s3-%s.amazonaws.com/%s" % (AWS_BUCKET_NAME, location, file_name)
