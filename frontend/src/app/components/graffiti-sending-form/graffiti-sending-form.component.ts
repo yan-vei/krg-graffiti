@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GraffitiForm } from 'src/app/entities/graffiti-form.model';
 import { coordinatesValidator, indexValidator } from 'src/app/utils/custom-validators';
 import { GraffitiService } from 'src/app/services/graffiti.service';
@@ -11,14 +11,17 @@ import { GraffitiService } from 'src/app/services/graffiti.service';
 })
 export class GraffitiSendingFormComponent {
   private image: File | null = null;
+  public sendGraffitiForm: FormGroup | any;
 
-  sendGraffitiForm = this.fb.group({
-    address: ['', Validators.maxLength(150)],
-    longitude: ['', [Validators.maxLength(12), coordinatesValidator()]],
-    latitude: ['', [Validators.maxLength(12), coordinatesValidator()]],
-    zip: ['', [Validators.maxLength(6), Validators.minLength(6), indexValidator()]],
-    comment: ['', Validators.required]
-  })
+  ngOnInit(): void {
+    this.sendGraffitiForm = this.fb.group({
+      address: [''],
+      longitude: [''],
+      latitude: [''],
+      zip: ['', Validators.minLength(5)],
+      comment: ['',]
+    })
+  }
 
   constructor(private fb: FormBuilder, private graffitiService: GraffitiService) {
   }
@@ -30,7 +33,7 @@ export class GraffitiSendingFormComponent {
 
 
   get buttonDisabled() {
-    return (Boolean(this.image) && !this.sendGraffitiForm.valid);
+    return (!Boolean(this.image) && !this.sendGraffitiForm.valid);
   }
 
 }

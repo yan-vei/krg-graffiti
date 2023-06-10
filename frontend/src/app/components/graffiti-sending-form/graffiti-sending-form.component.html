@@ -32,6 +32,9 @@
       <div class="form-row" id="send-button">
         <button [disabled]="buttonDisabled">Отправить</button>
       </div>
+      <div class="field-message" *ngIf="sendGraffitiForm.errors">
+        Your password must have lower case, upper case and numeric characters.
+      </div>
     </form>
   </div>
 </div>
