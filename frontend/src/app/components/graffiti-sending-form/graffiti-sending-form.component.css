@@ -105,6 +105,10 @@ button {
   text-align: center;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 37.5rem) {
   .text-wrapper {
     font-size: 1rem;
