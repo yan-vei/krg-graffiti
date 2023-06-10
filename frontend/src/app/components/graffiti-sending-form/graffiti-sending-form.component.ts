@@ -15,11 +15,11 @@ export class GraffitiSendingFormComponent {
 
   ngOnInit(): void {
     this.sendGraffitiForm = this.fb.group({
-      address: [''],
-      longitude: [''],
-      latitude: [''],
-      zip: ['', Validators.minLength(5)],
-      comment: ['',]
+      address: ['', Validators.required],
+      longitude: ['', [Validators.maxLength(14), coordinatesValidator()]],
+      latitude: ['', [Validators.maxLength(14), coordinatesValidator()]],
+      zip: ['', [Validators.minLength(6), Validators.maxLength(6), indexValidator()]],
+      comment: ['', Validators.required]
     })
   }
 
@@ -32,8 +32,8 @@ export class GraffitiSendingFormComponent {
   }
 
 
-  get buttonDisabled() {
-    return (!Boolean(this.image) && !this.sendGraffitiForm.valid);
+  get formFilled() {
+    return (Boolean(this.image) && this.sendGraffitiForm.valid);
   }
 
 }
