@@ -10,16 +10,16 @@ import { GraffitiService } from 'src/app/services/graffiti.service';
   styleUrls: ['./graffiti-sending-form.component.css']
 })
 export class GraffitiSendingFormComponent {
-  private image: File | null = null;
+  private image: File | any;
   public sendGraffitiForm: FormGroup | any;
 
   ngOnInit(): void {
     this.sendGraffitiForm = this.fb.group({
-      address: ['', Validators.required],
+      address: [null, Validators.required],
       longitude: ['', [Validators.maxLength(14), coordinatesValidator()]],
       latitude: ['', [Validators.maxLength(14), coordinatesValidator()]],
       zip: ['', [Validators.minLength(6), Validators.maxLength(6), indexValidator()]],
-      comment: ['', Validators.required]
+      comment: [null, Validators.required]
     })
   }
 
@@ -34,6 +34,21 @@ export class GraffitiSendingFormComponent {
 
   get formFilled() {
     return (Boolean(this.image) && this.sendGraffitiForm.valid);
+  }
+
+  onSubmit() {
+    const graffitiForm: GraffitiForm = new GraffitiForm(this.sendGraffitiForm.controls.address.value,
+      this.sendGraffitiForm.controls.zip.value, this.sendGraffitiForm.controls.latitude.value,
+      this.sendGraffitiForm.controls.longitude.value, this.sendGraffitiForm.controls.comment.value);
+
+    this.graffitiService.sendGraffitiForm(graffitiForm, this.image).subscribe(
+      (data) => {
+        this.sendGraffitiForm.reset();
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
 }

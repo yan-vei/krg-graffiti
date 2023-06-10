@@ -11,24 +11,24 @@
         <label for="address">Адрес*:</label>
         <input type="text" formControlName="address" placeholder="Введите примерный адрес">
         <label for="zip">Индекс:</label>
-        <input type="text" formControlName="zip" id="zip">
+        <input type="text" formControlName="zip" id="zip" placeholder="000000">
       </div>
       <div class="form-row">
         <label for="longitude">Долгота:</label>
-        <input type="text" formControlName="longitude" id="lg">
+        <input type="text" formControlName="longitude" id="lg" placeholder="например: 41.33">
         <label for="latitude">Широта:</label>
-        <input type="text" formControlName="latitude" id="lt">
+        <input type="text" formControlName="latitude" id="lt" placeholder="например: 78.54">
       </div>
       <div class="form-row" id="comment">
         <label for="zip">Комментарий*:</label> <br>
-        <textarea formControlName="comment" id="comment-area"></textarea>
+        <textarea formControlName="comment" id="comment-area" placeholder="Краткое описание граффити"></textarea>
       </div>
       <div class="form-row" id="upload-photo">
           <label for="upload" id="photo-upload">Загрузить фото</label>
           <input (change)="setFile($event)" type="file" id="upload">
       </div>
       <div class="form-row" id="send-button">
-        <button [disabled]="!formFilled">Отправить</button>
+        <button [disabled]="!formFilled" (click)="onSubmit()">Отправить</button>
       </div>
     </form>
   </div>

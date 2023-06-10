@@ -22,7 +22,12 @@ export class GraffitiService {
 
     const formData = new FormData();
     formData.append('image', image);
-    formData.append('graffitiForm', JSON.stringify(graffitiForm));
+    formData.append('address', graffitiForm.address);
+    formData.append('zip', graffitiForm.zip);
+    formData.append('latitude', graffitiForm.latitude);
+    formData.append('longitude', graffitiForm.longitude);
+    formData.append('comment', graffitiForm.comment)
+
 
     return this.http.post<Graffiti>(url, formData)
   }
