@@ -6,6 +6,7 @@ from backend.src.utils.decorators import admin_rights_required, is_admin
 from backend.src.utils.validators import validate_upload_request, validate_file_extension
 from flask import current_app
 
+
 images = Blueprint("images", __name__)
 
 
