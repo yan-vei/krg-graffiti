@@ -25,7 +25,7 @@
       </div>
       <div class="form-row" id="upload-photo">
           <label for="upload" id="photo-upload">Загрузить фото</label>
-          <input (change)="setFile($event)" type="file" id="upload">
+          <input (change)="setFile($event)" type="file" id="upload" accept="image/jpeg, image/png, image/jpg">
       </div>
       <div class="form-row" id="send-button">
         <button [disabled]="!formFilled" (click)="onSubmit()">Отправить</button>
