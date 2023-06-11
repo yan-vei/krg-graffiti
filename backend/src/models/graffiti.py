@@ -28,7 +28,6 @@ class Graffiti(Base):
 class GraffitiSchema(Schema):
     id = fields.Number()
     image_url = fields.Str()
-    has_admin_checked = fields.Boolean()
     address = fields.Str(allow_none=True)
     longitude = fields.Float(allow_none=True)
     latitude = fields.Float(allow_none=True)
