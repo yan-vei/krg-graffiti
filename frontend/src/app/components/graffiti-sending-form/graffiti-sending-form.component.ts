@@ -12,6 +12,7 @@ import { GraffitiService } from 'src/app/services/graffiti.service';
 export class GraffitiSendingFormComponent {
   private image: File | any;
   public sendGraffitiForm: FormGroup | any;
+  public fileTooBig: Boolean = false;
 
   ngOnInit(): void {
     this.sendGraffitiForm = this.fb.group({
@@ -28,7 +29,16 @@ export class GraffitiSendingFormComponent {
 
   setFile(event: any) {
     const file = event.target.files[0];
-    this.image = file;
+
+    if (file.size > 1) // 5 MB in bytes
+    {
+      this.fileTooBig = true;
+      alert("File you are trying to upload is too big!");
+    }
+    else {
+      this.fileTooBig = false;
+      this.image = file;
+    }
   }
 
 
