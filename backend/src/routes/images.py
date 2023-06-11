@@ -3,7 +3,8 @@ from flask import make_response, request
 from backend.src.utils import aws_helper
 from backend.src.crud import graffiti
 from backend.src.utils.decorators import admin_rights_required, is_admin
-from backend.src.utils.validators import validate_upload_request
+from backend.src.utils.validators import validate_upload_request, validate_file_extension
+
 
 
 images = Blueprint("images", __name__)
@@ -16,6 +17,9 @@ def upload_image():
     graffiti_data = validate_upload_request(graffiti_data)
 
     image = request.files['image']
+
+    if validate_file_extension(image.filename):
+        return make_response({"error": "Invalid input file extension."}, 400)
 
     try:
         image_url = aws_helper.upload_to_aws(image)
