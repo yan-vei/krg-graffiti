@@ -3,6 +3,7 @@ from flask import make_response, request
 from backend.src.utils import aws_helper
 from backend.src.crud import graffiti
 from backend.src.utils.decorators import admin_rights_required, is_admin
+from backend.src.utils.validators import validate_upload_request
 
 
 images = Blueprint("images", __name__)
@@ -11,6 +12,9 @@ images = Blueprint("images", __name__)
 @images.route("/api/v1/images", methods=["POST"])
 def upload_image():
     graffiti_data = request.form.to_dict()
+
+    graffiti_data = validate_upload_request(graffiti_data)
+
     image = request.files['image']
 
     try:
