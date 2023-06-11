@@ -1,8 +1,8 @@
 import re
 
-
 GRAFFITI_KEYS = ['address', 'longitude', 'latitude', 'zip', 'comment']
 FILE_EXTENSIONS = ['.jpg', '.jpeg', '.png']
+
 
 def validate_upload_request(request):
     for key in GRAFFITI_KEYS:
