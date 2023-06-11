@@ -4,8 +4,7 @@ from backend.src.utils import aws_helper
 from backend.src.crud import graffiti
 from backend.src.utils.decorators import admin_rights_required, is_admin
 from backend.src.utils.validators import validate_upload_request, validate_file_extension
-
-
+from flask import current_app
 
 images = Blueprint("images", __name__)
 
@@ -19,16 +18,20 @@ def upload_image():
     image = request.files['image']
 
     if validate_file_extension(image.filename):
+        current_app.logger.warning("User tried uploading an invalid image: %s", image.filename)
         return make_response({"error": "Invalid input file extension."}, 400)
 
     try:
         image_url = aws_helper.upload_to_aws(image)
     except Exception as e:
+        current_app.logger.error("Image failed to upload to AWS. Error: %s", e)
         return make_response({"error": "Image failed to upload to AWS."}, 500)
 
     graffiti_obj = graffiti.create_graffiti(image_url=image_url, address=graffiti_data['address'],
                                             longitude=graffiti_data['longitude'], latitude=graffiti_data['latitude'],
                                             zip=graffiti_data['zip'], comment=graffiti_data['comment'])
+
+    current_app.logger.info("Image was successfully uploaded to the url - %s", image_url)
 
     return make_response(jsonify(graffiti_obj), 200)
 
@@ -55,5 +58,8 @@ def retrieve_image(id):
         params = request.get_json()
 
         changed_graffiti_id = graffiti.update_graffiti(id, params)
+
+        current_app.logger.warning("Admin changed the graffiti with the id %s", str(id))
+
         return make_response(jsonify({"id": changed_graffiti_id, "message": "The graffiti object has been patched."}),
                              200)
