@@ -29,8 +29,8 @@ export class GraffitiSendingFormComponent {
 
   setFile(event: any) {
     const file = event.target.files[0];
-
-    if (file.size > 1) // 5 MB in bytes
+    
+    if (file.size > 5242881) // 5 MB in bytes
     {
       this.fileTooBig = true;
       alert("File you are trying to upload is too big!");
@@ -39,6 +39,7 @@ export class GraffitiSendingFormComponent {
       this.fileTooBig = false;
       this.image = file;
     }
+    
   }
 
 
