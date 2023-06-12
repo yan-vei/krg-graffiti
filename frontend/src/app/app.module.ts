@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GraffitiSendingFormComponent } from './components/graffiti-sending-form/graffiti-sending-form.component';
+import { HttpErrorInterceptor } from './services/http-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { GraffitiSendingFormComponent } from './components/graffiti-sending-form
     HttpClientJsonpModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
