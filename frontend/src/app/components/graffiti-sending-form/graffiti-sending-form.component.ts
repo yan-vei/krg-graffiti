@@ -10,7 +10,7 @@ import { GraffitiService } from 'src/app/services/graffiti.service';
   styleUrls: ['./graffiti-sending-form.component.css']
 })
 export class GraffitiSendingFormComponent {
-  private image: File | any;
+  public image: File | any;
   public sendGraffitiForm: FormGroup | any;
   public fileTooBig: Boolean = false;
 
