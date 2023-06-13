@@ -33,7 +33,6 @@ export class GraffitiSendingFormComponent {
     if (file.size > 5242881) // 5 MB in bytes
     {
       this.fileTooBig = true;
-      alert("File you are trying to upload is too big!");
     }
     else {
       this.fileTooBig = false;

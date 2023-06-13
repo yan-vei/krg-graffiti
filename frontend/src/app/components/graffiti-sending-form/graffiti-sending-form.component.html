@@ -27,8 +27,9 @@
           <label for="upload" id="photo-upload">Загрузить фото</label>
           <input (change)="setFile($event)" type="file" id="upload" accept="image/jpeg, image/png, image/jpg">
       </div>
-      <div class="form-row" id="uploaded-photo-wrapper" *ngIf="image">
-        <span class="uploaded-photo">Загружено фото: {{ image.name }}</span>
+      <div class="form-row" id="uploaded-photo-wrapper" >
+        <span class="uploaded-photo" *ngIf="image">Загружен файл: {{ image.name }}</span>
+        <span class="uploaded-photo" *ngIf="fileTooBig" style="color:darkred">Файл не загружен. Размер файла не должен превышать 5Мб!</span>
       </div>
       <div class="form-row" id="send-button">
         <button [disabled]="!formFilled" (click)="onSubmit()">Отправить</button>
