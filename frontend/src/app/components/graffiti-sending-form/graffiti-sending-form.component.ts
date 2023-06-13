@@ -10,7 +10,7 @@ import { GraffitiService } from 'src/app/services/graffiti.service';
   styleUrls: ['./graffiti-sending-form.component.css']
 })
 export class GraffitiSendingFormComponent {
-  private image: File | any;
+  public image: File | any;
   public sendGraffitiForm: FormGroup | any;
   public fileTooBig: Boolean = false;
 
@@ -33,7 +33,6 @@ export class GraffitiSendingFormComponent {
     if (file.size > 5242881) // 5 MB in bytes
     {
       this.fileTooBig = true;
-      alert("File you are trying to upload is too big!");
     }
     else {
       this.fileTooBig = false;
@@ -41,7 +40,6 @@ export class GraffitiSendingFormComponent {
     }
     
   }
-
 
   get formFilled() {
     return (Boolean(this.image) && this.sendGraffitiForm.valid);
@@ -55,9 +53,6 @@ export class GraffitiSendingFormComponent {
     this.graffitiService.sendGraffitiForm(graffitiForm, this.image).subscribe(
       (data) => {
         this.sendGraffitiForm.reset();
-      },
-      (error) => {
-        console.log(error);
       }
     )
   }
