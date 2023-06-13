@@ -41,7 +41,6 @@ export class GraffitiSendingFormComponent {
     
   }
 
-
   get formFilled() {
     return (Boolean(this.image) && this.sendGraffitiForm.valid);
   }
@@ -54,9 +53,6 @@ export class GraffitiSendingFormComponent {
     this.graffitiService.sendGraffitiForm(graffitiForm, this.image).subscribe(
       (data) => {
         this.sendGraffitiForm.reset();
-      },
-      (error) => {
-        console.log(error);
       }
     )
   }

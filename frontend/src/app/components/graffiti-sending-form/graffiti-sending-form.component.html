@@ -10,14 +10,14 @@
       <div class="form-row">
         <label for="address">Адрес*:</label>
         <input type="text" formControlName="address" placeholder="Введите примерный адрес">
-        <label for="zip">Индекс:</label>
-        <input type="text" formControlName="zip" id="zip" placeholder="000000">
+        <label for="zip" [ngStyle]="{'color': (sendGraffitiForm.controls.zip.errors) ? 'red' : 'black'}">Индекс:</label>
+        <input type="text" formControlName="zip" id="zip" placeholder="000000" [ngStyle]="{'border': (sendGraffitiForm.controls.zip.errors) ? '1px solid red' : 'none'}">
       </div>
       <div class="form-row">
-        <label for="longitude">Долгота:</label>
-        <input type="text" formControlName="longitude" id="lg" placeholder="например: 41.33">
-        <label for="latitude">Широта:</label>
-        <input type="text" formControlName="latitude" id="lt" placeholder="например: 78.54">
+        <label for="longitude" [ngStyle]="{'color': (sendGraffitiForm.controls.longitude.errors) ? 'red' : 'black'}">Долгота:</label>
+        <input type="text" formControlName="longitude" id="lg" placeholder="например: 41.33" [ngStyle]="{'border': (sendGraffitiForm.controls.longitude.errors) ? '1px solid red' : 'none'}">
+        <label for="latitude" [ngStyle]="{'color': (sendGraffitiForm.controls.latitude.errors) ? 'red' : 'black'}">Широта:</label>
+        <input type="text" formControlName="latitude" id="lt" placeholder="например: 78.54" [ngStyle]="{'border': (sendGraffitiForm.controls.latitude.errors) ? '1px solid red' : 'none'}">
       </div>
       <div class="form-row" id="comment">
         <label for="zip">Комментарий*:</label> <br>
