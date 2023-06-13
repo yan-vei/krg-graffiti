@@ -23,6 +23,7 @@
   text-align: left;
   display: flex;
   justify-content: space-between;
+  justify-items: center;
   flex-wrap: wrap;
 }
 
@@ -107,6 +108,17 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.form-row#uploaded-photo-wrapper {
+  justify-content: center;
+  height: fit-content;
+}
+
+.uploaded-photo {
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  color: gray;
 }
 
 @media screen and (max-width: 37.5rem) {
