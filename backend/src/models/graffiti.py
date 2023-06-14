@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, Boolean, Float
 from marshmallow import Schema, fields
-from backend.src.models.entity import Base
+from .entity import Base
 
 
 class Graffiti(Base):

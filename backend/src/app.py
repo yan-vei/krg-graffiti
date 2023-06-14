@@ -1,9 +1,7 @@
-import logging
-
 from flask import Flask
 from flask_cors import CORS
-from backend.src.models.entity import Base, engine
-from backend.src.routes import images
+from routes import images
+from models.entity import Base, engine
 
 
 def create_app():
