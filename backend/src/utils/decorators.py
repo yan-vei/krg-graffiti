@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import make_response, request, jsonify
-from backend.src.config import ADMIN_TOKEN
+from src.config import ADMIN_TOKEN
 
 
 def is_admin(f):
