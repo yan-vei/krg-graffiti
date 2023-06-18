@@ -1,3 +1,7 @@
+# IDE folders
 .idea/
 .vscode/
+
+# Docker-compose utils
 db-data/
+.env
