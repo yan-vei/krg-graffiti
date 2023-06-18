@@ -1,5 +1,5 @@
-from backend.src.models.entity import Session
-from backend.src.models.graffiti import Graffiti, GraffitiSchema
+from ..models.entity import Session
+from ..models.graffiti import Graffiti, GraffitiSchema
 
 
 def create_graffiti(image_url, address, longitude, latitude, zip, comment, has_admin_checked=False):

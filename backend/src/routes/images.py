@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify
 from flask import make_response, request
-from backend.src.utils import aws_helper
-from backend.src.crud import graffiti
-from backend.src.utils.decorators import admin_rights_required, is_admin
-from backend.src.utils.validators import validate_upload_request, validate_file_extension
 from flask import current_app
+from src.utils import aws_helper
+from src.crud import graffiti
+from src.utils.decorators import admin_rights_required, is_admin
+from src.utils.validators import validate_upload_request, validate_file_extension
 
 
 images = Blueprint("images", __name__)

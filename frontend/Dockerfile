@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM node:16-buster-slim as builder
+FROM node:16-buster-slim as build
 
 WORKDIR /frontend
 
@@ -13,6 +13,13 @@ RUN npm i
 
 COPY . /frontend
 
-EXPOSE 3080
+RUN ng build --configuration production --output-path=dist
 
-CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "3080"]
+FROM nginx:1.14.2
+
+COPY --from=build /frontend/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+

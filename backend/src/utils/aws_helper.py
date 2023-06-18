@@ -2,7 +2,7 @@ import imghdr
 import uuid
 from io import BytesIO
 import boto3
-from backend.src import config
+from src import config
 
 
 AWS_ACCESS_KEY = config.AWS_ACCESS_KEY
