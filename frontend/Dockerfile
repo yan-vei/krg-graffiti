@@ -13,9 +13,11 @@ RUN npm i
 
 COPY . /frontend
 
-RUN ng build --configuration production --output-path=dist
+RUN ng build --configuration production --output-path=dist --output-hashing=all
 
 FROM nginx:1.14.2
+
+COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /frontend/dist /usr/share/nginx/html
 
