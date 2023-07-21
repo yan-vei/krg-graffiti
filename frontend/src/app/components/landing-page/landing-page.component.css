@@ -6,20 +6,20 @@
 }
 
 .text-wrapper {
-  margin: 1rem;
+  margin: 1em;
 }
 
 
 .text {
   color: black;
   font-family: Inter, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 700;
 }
 
-@media (max-width: 37.5rem) {
+@media (max-width: 37.5em) {
   .text {
-    font-size: 1rem;
+    font-size: 1em;
   }
 }
 
