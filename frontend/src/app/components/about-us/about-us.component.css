@@ -5,24 +5,24 @@
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 1em;
 }
 
 .text-wrapper {
   width: 100%;
   font-family: Inter, sans-serif;
-  font-size: 1rem;
+  font-size: 1em;
   text-align: justify;
 }
 
-@media screen and (min-width: 72rem) {
+@media screen and (min-width: 72em) {
   .text-wrapper {
-    font-size: 1.2rem;
+    font-size: 1.2em;
   }
 }
 
 .avatar-wrapper {
-  margin-right: 1.5rem;
+  margin-right: 1.5em;
 }
 
 .avatar {
@@ -32,7 +32,7 @@
   border: 1px dashed #0D503C;
 }
 
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 37.5em) {
   .avatar {
     width: 25vh;
     height: 25vh;

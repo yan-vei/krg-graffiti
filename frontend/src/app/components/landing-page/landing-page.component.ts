@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -10,8 +10,7 @@ import { Graffiti } from 'src/app/entities/graffiti.model';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent {
   apiLoaded: Observable<boolean>;
