@@ -20,8 +20,11 @@ export class LandingPageComponent {
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow[] | any;
   infoContent: string = "";
 
-  lat: number = 49.808571116626005;
-  lng: number = 73.10329162306904;
+  infoContentH: string = '<div class="info-window-wrapper""><img width="300px" alt="graffiti" src="https://krg-graffiti-test-images.s3-eu-central-1.amazonaws.com/5d787814-3af"><p class="info-window-text">Комментарий будет здесь</p></div><a href="https://krg-graffiti-test-images.s3-eu-central-1.amazonaws.com/5d787814-3af">Открыть в новом окне</a>'
+
+  lat: number = 49.8138130;
+  lng: number = 73.0919123;
+  pos = {lat: this.lat, lng: this.lng}
 
   markerOptions: google.maps.MarkerOptions = {draggable: false};
 
